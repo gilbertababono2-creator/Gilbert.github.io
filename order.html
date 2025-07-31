@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ORDER MENU</title>
+  <style>
+    body{
+      height:100vh;
+      display:grid;
+      place-items:center ;
+      background:linear-gradient(to right, #42445A, #2B338C)
+    }
+    h2{
+      color:#fff;
+      margin-top:10%;
+    }
+   form{
+     background:linear-gradient(to left, #2B338C, #6875FF);
+     height:120%;
+     padding:50px;
+     border-radius:15px;
+     position:relative;
+     top:90%;
+   }
+   input[type=submit]{
+     padding:10px;
+     border-radius:8px;
+     border:2px solid #6875FF;
+     outline:none;
+     margin:10px ;
+     background:transparent;
+   }
+   input[type=text]{
+     padding:10px 5px 5px;
+     border-radius:14px;
+     border:none;
+   }
+   input[type=text]:focus{
+     outline:none;
+     color:#fff ;
+     background:#6875FF;
+   }
+   input[type=number]{
+     padding:10px 5px 5px;
+     border-radius:14px;
+     border:none;
+   }
+   input[type=number]:focus {
+  outline: none;
+  color: #fff;
+  background: #6875FF;
+   } 
+   option{
+     background:linear-gradient(#6875FF, #15209E);
+   }
+  </style>
+</head>
+
+<body>
+  <h2>ORDER YOUR BREAD</h2>
+  <div class="container">
+    <form id="myform">
+      <h3>ORDER FORM</h3>
+      <label for="">FULLNAME:<input type="text"id="fname"placeholder=" John Doe"></label>
+      <span id="error"style.color="red"></span>
+      <label for="">LOCATION:<input type="text" name="location" id="location"placeholder="e.g:OBUASI"></label>
+      <span id="error"style.color="red">
+      <label for="">BREAD TYPE<select>
+        <option value="CHOOSE">CHOOSE BREAD</option>
+        <option value="SHORT BREAD">SHORT BREAD</option>
+        <option value="BUTTER BREAD">BUTTER BREAD</option>
+        <option value="CAKE BREAD">CAKE BREAD</option>
+        <option value="CHOCOLATE BREAD">CHOCOLATE BREAD</option>
+        <option value="MILO BREAD">MILO BREAD</option>
+      </select></label>
+      <span id="error"></span>
+      <br>
+      <label for="">HOW MANY<input type="number" name="number" id="number"placeholder="e.g:24 pieces"></label>
+      <span id="error"></span>
+      <input type="submit"value="SUBMIT">
+    </form>
+  </div>
+  <script>
+    const fname = document.getElementById("fname").value;
+    const Location = document.getElementById("location").value;
+    const number = document.getElementById("number").value;
+    const myform = document.getElementById("myform");
+    const error = document.getElementById("error");
+    
+    error = [];
+    
+    function checkFullname(){
+      if(fname === ""){
+        error.push("Fullname required");
+      }
+      }
+        
+    function checkLocation(){
+      if(location.value === ""|| location = null) {
+        error.push("Location required");
+      }
+    }
+    function checkNumber(){
+      if(number.value ==="" ) {
+        error.push("Number required")
+      }
+    }
+    
+    myform.addEventListener("click",(e) =>{
+      
+      e.preventDefault();
+      
+      checkFullname();
+      checkLocation();
+      checkNumber();
+    })
+  </script>
+</body>
+
+</html>
